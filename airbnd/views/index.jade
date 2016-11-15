@@ -1,5 +1,15 @@
 extends layout
 
+block headline
+  p 여행은 살아보는 거야.전 세계의 독특한 숙소를 예약하고 현지인의 삶을 살아보세요.
 block content
-  h1= title
-  p Welcome to #{title}
+  form.form-search(action='/search', method='POST')
+    label(for='position') 위치
+    input(type='postion', id='position', name='position' value='position')
+    label(for='date') 날짜
+    input(type='checkin', id='checkin', name='checkin' value='checkin')
+    input(type='checkout', id='checkout', name='checkout' value='checkout')
+    label(for='people_number') 숙박인원
+    input(type='checkin', id='checkin', name='checkin' value='checkout')
+
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') 숙박검색
