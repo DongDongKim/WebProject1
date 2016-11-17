@@ -1,5 +1,5 @@
 extends layout
-
+          
 block headline
   p 여행은 살아보는 거야.전 세계의 독특한 숙소를 예약하고 현지인의 삶을 살아보세요.
 block content
@@ -13,3 +13,24 @@ block content
     input(type='checkin', id='checkin', name='checkin' value='checkout')
 
     button.btn.btn-lg.btn-primary.btn-block(type='submit') 숙박검색
+    div.modal.fade(id='signin', role='dialog')
+      div.modal-dialog
+        div.modal-content
+          div.modal-header
+             button(type='button' ,class='close', data-dismiss='modal') x
+            label 이메일로 회원가입
+          div.modal-body
+                form(action='/users', method='POST')
+                  .form-group
+                    input.form-control(type='text', id='name', name='name', placeholder='Your name', value='user.name')
+                  .form-group
+                    input.form-control(type='email', id='email', name='email', placeholder='Email', value='user.email')
+                  .form-group
+                    input.form-control(type='password', id='current_password', name='current_password', placeholder='New Password')                  
+                  div.form-actions
+                    button.btn.btn-primary(type='submit') Sign in
+           
+          div.modal-footer
+            button(type='button', class='btn btn-default' ,data-dismiss='modal') Close
+
+          
